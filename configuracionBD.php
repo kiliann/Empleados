@@ -1,6 +1,6 @@
 <?php
-define('SERVIDOR', "localhosto");
-define('USUARIO', "root");
-define('PASSWORD', "");
-define('DBDATOS', "bdempleados");
+define("SERVIDOR", "localhost");
+define("USUARIO", "root");
+define("PASSWORD", "");
+define("DB", "bdempleado");
 ?>
