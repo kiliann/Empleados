@@ -13,8 +13,9 @@ $a = new Conexion();
 </head>
 <body>
     <h1>Alta de empleados</h1>
-
-    <form name="altaEmpleado"action="altaEmpleados.php" method="post">
+    <?php
+    if(!isset($_POST['enviar'])){ ?>
+    <form  action="altaEmpleados.php" method="post">
         <label>DNI</label>
         <input type="text" name="dni"><br/>
         <label>Nombre</label>
@@ -26,13 +27,27 @@ $a = new Conexion();
         <input type="submit" name="enviar" value="Enviar">
     </form>
 <?php
-  if(isset($_POST['enviar'])){
-      $dni = $_POST['dni'];
-      $nombre = $_POST['nombre'];
-      $correo = $_POST['correo'];
-      $consulata = "INSERT INTO empleado( DNI, Nombre, Correo, Telefono) VALUES ('[]','[value-3]','[value-4]','[value-5]')";
-      $a->mysqli->query();
-  }
+    }else{
+        $dni = $_POST['dni'];
+        $nombre = $_POST['nombre'];
+        $correo = $_POST['correo'];
+        $telefono = $_POST['telefono'];
+
+        $consulta = "INSERT INTO empleado( DNI, Nombre, Correo, Telefono) VALUES ('$dni', '$nombre', '$correo', $telefono)";
+
+        $resultado =$a->mysqli->query($consulta);
+        if ($resultado) {
+            echo "<P>Insertado los datos correctamente </P>";
+        } else {
+            echo "<P>Error: " . $consulta . "<br>" . mysqli_error($a) . "</p>";
+        }
+
+
+
+    }
+
+
+
 
 ?>
 </body>

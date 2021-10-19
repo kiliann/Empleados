@@ -1,7 +1,7 @@
 CREATE DATABASE BDEmpleado CHARACTER SET 'UTF8' COLLATE 'utf8_general_ci';
 
 CREATE TABLE Empleado(
-id_empleado TINYINT unsigned not NULL,
+id_empleado TINYINT unsigned not NULL AUTO_INCREMENT,
 DNI CHAR(9) not null,
 Nombre VARCHAR(18) not null,
 Correo VARCHAR(30) NULL,
