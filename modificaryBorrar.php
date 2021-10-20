@@ -32,8 +32,9 @@ $a = new Conexion();
             echo '<td>'.$fila["Nombre"].'</td>';
             echo '<td>'.$fila["Correo"].'</td>';
             echo '<td>'.$fila["Telefono"].'</td>';
-            echo '<button header("Location:nombre_pagina.php?varible1=$fila["id_empleado"]")>Modificar</button>';
-            echo '<button>Borrar</button>';
+            echo '<td><a class="boton-personalizado" href="modificar.php?varible1='.$fila["id_empleado"].'">Modificar</a></td>';
+            echo '<td><a class="boton-personalizado" href="modificar.php?varible1='.$fila["id_empleado"].'">Borrar</a></td>';
+
         echo '</tr>';
 
 }
