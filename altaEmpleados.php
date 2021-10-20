@@ -10,6 +10,7 @@ $a = new Conexion();
 <head>
     <meta charset="UTF-8">
     <title>Gestion de Empleados</title>
+    <link type="text/css" rel="stylesheet" href="css/estilo.css">
 </head>
 <body>
     <h1>Alta de empleados</h1>
@@ -38,8 +39,10 @@ $a = new Conexion();
         $resultado =$a->mysqli->query($consulta);
         if ($resultado) {
             echo "<P>Insertado los datos correctamente </P>";
+            echo '<a class="boton-personalizado-2" href="altaEmpleados.php">Volver</a>';
         } else {
             echo "<P>Error: " . $consulta . "<br>" . mysqli_error($a) . "</p>";
+            echo '<a class="boton-personalizado-2" href="altaEmpleados.php">Volver</a>';
         }
 
 

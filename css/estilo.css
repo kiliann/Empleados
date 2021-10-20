@@ -12,6 +12,20 @@
     font-weight: 600;
     font-size: 20px;
     color:#ffffff;
+    padding-top:3px;
+    padding-bottom:3px;
+    padding-left:20px;
+    padding-right:20px;
+    background-color: transparent;
+    border-width: 3px;
+    border-style: solid;
+    background-color:#005BBB;
+}
+.boton-personalizado-2 {
+    text-decoration:none;
+    font-weight: 600;
+    font-size: 20px;
+    color:#000000;
     padding-top:5px;
     padding-bottom:5px;
     padding-left:20px;
@@ -19,5 +33,5 @@
     background-color: transparent;
     border-width: 3px;
     border-style: solid;
-    background-color:#005BBB;
+    border-color: #000000;
 }
