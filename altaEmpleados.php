@@ -6,7 +6,7 @@ $a = new Conexion();
 //$mysqli = new mysqli(SERVIDOR,USUARIO, PASSWORD, DB);
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es-ES">
 <head>
     <meta charset="UTF-8">
     <title>Gestion de Empleados</title>

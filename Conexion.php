@@ -14,4 +14,8 @@ class Conexion{
 
         return  $this->resultado=$this->mysqli->query($consulta);
     }
+
+    public function extraerFila($resultado){
+        return $this->fila =mysqli_fetch_array($resultado);
+    }
 }
