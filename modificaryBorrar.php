@@ -12,6 +12,10 @@ $a = new Conexion();
     <link type="text/css" rel="stylesheet" href="css/estilo.css">
 </head>
 <body>
+<a class="boton-personalizado-2" href="altaEmpleados.php">Alta Empleados</a>
+<a class="boton-personalizado-2" href="modificaryBorrar.php">Modificar y Borrar</a>
+
+<h1>Modificar y Borrar Empleados</h1>
 <table class="tabladeconsulta">
     <tr>
         <td>Id</td>
@@ -33,7 +37,7 @@ $a = new Conexion();
             echo '<td>'.$fila["Correo"].'</td>';
             echo '<td>'.$fila["Telefono"].'</td>';
             echo '<td><a class="boton-personalizado" href="modificar.php?variable1='.$fila["id_empleado"].'">Modificar</a></td>';
-            echo '<td><a class="boton-personalizado" href="modificar.php?variable1='.$fila["id_empleado"].'">Borrar</a></td>';
+            echo '<td><a class="boton-personalizado" href="borrar.php?variable1='.$fila["id_empleado"].'">Borrar</a></td>';
 
         echo '</tr>';
 
