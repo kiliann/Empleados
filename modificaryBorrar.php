@@ -12,37 +12,57 @@ $a = new Conexion();
     <link type="text/css" rel="stylesheet" href="css/estilo.css">
 </head>
 <body>
-<a class="boton-personalizado-2" href="altaEmpleados.php">Alta Empleados</a>
-<a class="boton-personalizado-2" href="modificaryBorrar.php">Modificar y Borrar</a>
+<div id="cabecera">
+    <h1>Modificar y Borrar Empleados</h1>
+</div>
+<nav id="menu">
 
-<h1>Modificar y Borrar Empleados</h1>
-<table class="tabladeconsulta">
-    <tr>
-        <td>Id</td>
-        <td>DNI</td>
-        <td>Nombre</td>
-        <td>Correo</td>
-        <td>Telefono</td>
+</nav>
+<div id="cajaContendora">
+    <div id="submenu">
+        <a class="botonSubmenu" href="index.php">Inicio</a><br/>
+        <a class="botonSubmenu" href="altaEmpleados.php">Alta Empleados</a><br/>
+        <a class="botonSubmenu" href="modificaryBorrar.php">Modificar y Borrar</a><br/>
+    </div>
+    <div id="contenido">
+        <table class="tabladeconsulta">
+            <tr>
+                <td>Id</td>
+                <td>DNI</td>
+                <td>Nombre</td>
+                <td>Correo</td>
+                <td>Telefono</td>
 
-    </tr>
-<?php
-    $consulta = "SELECT * FROM empleado WHERE 1;";
-    $resultado = $a->consultas($consulta);
+            </tr>
+            <?php
+            $consulta = "SELECT * FROM empleado WHERE 1;";
+            $resultado = $a->consultas($consulta);
 
-    while ($fila=$a->extraerFila($resultado)){
-        echo '<tr>';
-            echo '<td>'.$fila["id_empleado"].'</td>';
-            echo '<td>'.$fila["DNI"].'</td>';
-            echo '<td>'.$fila["Nombre"].'</td>';
-            echo '<td>'.$fila["Correo"].'</td>';
-            echo '<td>'.$fila["Telefono"].'</td>';
-            echo '<td><a class="boton-personalizado" href="modificar.php?variable1='.$fila["id_empleado"].'">Modificar</a></td>';
-            echo '<td><a class="boton-personalizado" href="borrar.php?variable1='.$fila["id_empleado"].'">Borrar</a></td>';
+            while ($fila=$a->extraerFila($resultado)){
+                echo '<tr>';
+                echo '<td>'.$fila["id_empleado"].'</td>';
+                echo '<td>'.$fila["DNI"].'</td>';
+                echo '<td>'.$fila["Nombre"].'</td>';
+                echo '<td>'.$fila["Correo"].'</td>';
+                echo '<td>'.$fila["Telefono"].'</td>';
+                echo '<td><a class="boton-personalizado" href="modificar.php?variable1='.$fila["id_empleado"].'">Modificar</a></td>';
+                echo '<td><a class="boton-personalizado" href="borrar.php?variable1='.$fila["id_empleado"].'">Borrar</a></td>';
 
-        echo '</tr>';
+                echo '</tr>';
 
-}
-?>
-</table>
+            }
+            ?>
+        </table>
+    </div>
+
+</div>
+
+<footer>
+
+</footer>
+
+
+
+
 </body>
 </html>
