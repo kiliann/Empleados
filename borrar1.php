@@ -32,9 +32,10 @@ $consulta = "DELETE FROM `empleado` WHERE id_empleado = '$id'";
         if($resultado = $a->consultas($consulta)){
             echo "Se borro correctamente";
             echo '<a class="boton-personalizado-2" href="modificaryBorrar.php">Volver</a>';
-        }else
+        }else {
             echo "Ocurrio un error en el borrado";
-        echo '<a class="boton-personalizado-2" href="modificaryBorrar.php">Volver</a>';
+            echo '<a class="boton-personalizado-2" href="modificaryBorrar.php">Volver</a>';
+        }
         ?>
     </div>
 

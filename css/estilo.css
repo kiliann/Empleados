@@ -73,7 +73,9 @@ footer{
     background-color: darksalmon;
     float: left;
 }
-
+#botonAñadirAlta{
+    margin-top: 50px;
+}
 
 .tabladeconsulta{
     border: 1px solid black;

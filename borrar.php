@@ -59,7 +59,7 @@ $a = new Conexion();
                 echo '<input type="hidden" name="id" value='.$id.'>';
 
                 ?>
-                <input type="submit" name="enviar" value="Aceptar">
+                <input class="boton-personalizado-2" type="submit" name="enviar" value="Aceptar">
             </form>
             <a class="boton-personalizado-2" href="modificaryBorrar.php">Cancelar</a>
     </div>

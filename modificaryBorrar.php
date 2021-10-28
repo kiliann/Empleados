@@ -53,6 +53,7 @@ $a = new Conexion();
             }
             ?>
         </table>
+        <div id="botonAñadirAlta"><a class="boton-personalizado" href="altaEmpleados.php">Añadir</a></div>
     </div>
 
 </div>
