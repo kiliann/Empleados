@@ -23,9 +23,11 @@ $consulta = "DELETE FROM `empleado` WHERE id_empleado = '$id'";
 </nav>
 <div id="cajaContendora">
     <div id="submenu">
-        <a class="botonSubmenu" href="index.php">Inicio</a><br/>
-        <a class="botonSubmenu" href="altaEmpleados.php">Alta Empleados</a><br/>
-        <a class="botonSubmenu" href="modificaryBorrar.php">Modificar y Borrar</a><br/>
+        <ol id="listamenu">
+            <li><a class="botonSubmenu" href="index.php">Inicio</a></li>
+            <li><a class="botonSubmenu" href="altaEmpleados.php">Alta Empleados</a></li>
+            <li><a class="botonSubmenu" href="modificaryBorrar.php">Modificar Empleados</a></li>
+        </ol>
     </div>
     <div id="contenido">
         <?php

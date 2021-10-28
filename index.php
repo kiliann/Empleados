@@ -17,7 +17,7 @@
             <ol id="listamenu">
                 <li><a class="botonSubmenu" href="index.php">Inicio</a></li>
                 <li><a class="botonSubmenu" href="altaEmpleados.php">Alta Empleados</a></li>
-                <li><a class="botonSubmenu" href="modificaryBorrar.php">Modificar y Borrar</a></li>
+                <li><a class="botonSubmenu" href="modificaryBorrar.php">Modificar Empleados</a></li>
             </ol>
 
         </div>

@@ -21,9 +21,11 @@ $a = new Conexion();
 </nav>
 <div id="cajaContendora">
     <div id="submenu">
-        <a class="botonSubmenu" href="index.php">Inicio</a><br/>
-        <a class="botonSubmenu" href="altaEmpleados.php">Alta Empleados</a><br/>
-        <a class="botonSubmenu" href="modificaryBorrar.php">Modificar y Borrar</a><br/>
+        <ol id="listamenu">
+            <li><a class="botonSubmenu" href="index.php">Inicio</a></li>
+            <li><a class="botonSubmenu" href="altaEmpleados.php">Alta Empleados</a></li>
+            <li><a class="botonSubmenu" href="modificaryBorrar.php">Modificar Empleados</a></li>
+        </ol>
     </div>
     <div id="contenido">
         <?php
@@ -37,7 +39,7 @@ $a = new Conexion();
                 <input type="text" name="correo"><br/>
                 <label>Telefono</label>
                 <input type="text" name="telefono"><br/>
-                <input type="submit" name="enviar" value="Enviar">
+                <input class="boton-personalizado" type="submit" name="enviar" value="Enviar">
             </form>
             <?php
         }else{
@@ -50,10 +52,10 @@ $a = new Conexion();
 
             $resultado =$a->mysqli->query($consulta);
             if ($resultado) {
-                echo "<P>Insertado los datos correctamente </P>";
+                echo "<p>Insertado los datos correctamente </p>";
                 echo '<a class="boton-personalizado-2" href="altaEmpleados.php">Volver</a>';
             } else {
-                echo "<P>Error: " . $consulta . "<br>" . mysqli_error($a) . "</p>";
+                echo "<p>Error: " . $consulta . "<br>" . mysqli_error($a) . "</p>";
                 echo '<a class="boton-personalizado-2" href="altaEmpleados.php">Volver</a>';
             }
 

@@ -21,9 +21,11 @@ $a = new Conexion();
 </nav>
 <div id="cajaContendora">
     <div id="submenu">
-        <a class="botonSubmenu" href="index.php">Inicio</a><br/>
-        <a class="botonSubmenu" href="altaEmpleados.php">Alta Empleados</a><br/>
-        <a class="botonSubmenu" href="modificaryBorrar.php">Modificar y Borrar</a><br/>
+        <ol id="listamenu">
+            <li><a class="botonSubmenu" href="index.php">Inicio</a></li>
+            <li><a class="botonSubmenu" href="altaEmpleados.php">Alta Empleados</a></li>
+            <li><a class="botonSubmenu" href="modificaryBorrar.php">Modificar Empleados</a></li>
+        </ol>
     </div>
     <div id="contenido">
         <table class="tabladeconsulta">
@@ -59,9 +61,9 @@ $a = new Conexion();
                 echo '<input type="hidden" name="id" value='.$id.'>';
 
                 ?>
-                <input class="boton-personalizado-2" type="submit" name="enviar" value="Aceptar">
+                <input class="boton-personalizado" type="submit" name="enviar" value="Aceptar">
             </form>
-            <a class="boton-personalizado-2" href="modificaryBorrar.php">Cancelar</a>
+            <a class="boton-personalizado" href="modificaryBorrar.php">Cancelar</a>
     </div>
 
 </div>
