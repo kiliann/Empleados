@@ -30,17 +30,48 @@ $a = new Conexion();
     <div id="contenido">
         <?php
         if(!isset($_POST['enviar'])){ ?>
+            <table>
             <form  action="altaEmpleados.php" method="post">
-                <label>DNI</label>
-                <input type="text" name="dni"><br/>
-                <label>Nombre</label>
-                <input type="text" name="nombre"><br/>
-                <label>Correo</label>
-                <input type="text" name="correo"><br/>
-                <label>Telefono</label>
-                <input type="text" name="telefono"><br/>
-                <input class="boton-personalizado" type="submit" name="enviar" value="Enviar">
+                <tr>
+                    <td>
+                        <label>DNI</label>
+                    </td>
+                    <td>
+                        <input type="text" name="dni"><br/ >
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Nombre</label>
+                    </td>
+                    <td>
+                        <input type="text" name="nombre"><br/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Correo</label>
+                    </td>
+                    <td>
+                        <input type="text" name="correo"><br/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Telefono</label>
+                    </td>
+                    <td>
+                        <input type="text" name="telefono"><br/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input class="boton-personalizado" type="submit" name="enviar" value="Enviar">
+                    </td>
+                </tr>
+
             </form>
+            </table>
             <?php
         }else{
             $dni = $_POST['dni'];
