@@ -26,7 +26,7 @@ $consulta = "DELETE FROM `empleado` WHERE id_empleado = '$id'";
         <ol id="listamenu">
             <li><a class="botonSubmenu" href="index.php">Inicio</a></li>
             <li><a class="botonSubmenu" href="altaEmpleados.php">Alta Empleados</a></li>
-            <li><a class="botonSubmenu" href="modificaryBorrar.php">Modificar Empleados</a></li>
+            <li><a class="botonSubmenu" href="modificaryBorrar.php">Modificar y Borrar</a></li>
         </ol>
     </div>
     <div id="contenido">
@@ -34,10 +34,9 @@ $consulta = "DELETE FROM `empleado` WHERE id_empleado = '$id'";
         if($resultado = $a->consultas($consulta)){
             echo "Se borro correctamente";
             echo '<a class="boton-personalizado-2" href="modificaryBorrar.php">Volver</a>';
-        }else {
+        }else
             echo "Ocurrio un error en el borrado";
-            echo '<a class="boton-personalizado-2" href="modificaryBorrar.php">Volver</a>';
-        }
+        echo '<a class="boton-personalizado-2" href="modificaryBorrar.php">Volver</a>';
         ?>
     </div>
 

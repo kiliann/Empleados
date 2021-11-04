@@ -41,11 +41,7 @@
                 $a = new Conexion();
 
                 if(isset($_POST["buscar"])){
-                    $buqueda = $_POST['busqueda'];
-                    $consulta = "SELECT id_empleado, DNI, Nombre, Correo, Telefono FROM `empleado` WHERE DNI = '$buqueda' ";
 
-                    $resultado = $a->consultas($consulta);
-                    echo '<table class="tabladeconsulta">';
                     ?>
                         <tr>
 
@@ -56,6 +52,11 @@
 
                         </tr>
                 <?php
+                    $buqueda = $_POST['busqueda'];
+                    $consulta = "SELECT id_empleado, DNI, Nombre, Correo, Telefono FROM `empleado` WHERE DNI = '$buqueda' ";
+
+                    $resultado = $a->consultas($consulta);
+                    echo '<table class="tabladeconsulta">';
                         while ($fila = $a->extraerFila($resultado)){
                             echo '<tr>';
 
@@ -69,6 +70,23 @@
                             echo '</tr>';
 
                         }
+                    echo '</table>';
+                    $consulta2 = "SELECT id_empleado, DNI, Nombre, Correo, Telefono FROM `empleado` WHERE Nombre LIKE '$buqueda' ";
+                    $resultado2 = $a->consultas($consulta2);
+                    echo '<table class="tabladeconsulta">';
+                    while ($fila2 = $a->extraerFila($resultado2)){
+                        echo '<tr>';
+
+                        echo '<td>'.$fila2["DNI"].'</td>';
+                        echo '<td>'.$fila2["Nombre"].'</td>';
+                        echo '<td>'.$fila2["Correo"].'</td>';
+                        echo '<td>'.$fila2["Telefono"].'</td>';
+                        echo '<td><a class="boton-personalizado" href="modificar.php?variable1='.$fila2["id_empleado"].'">Modificar</a></td>';
+                        echo '<td><a class="boton-personalizado" href="borrar.php?variable1='.$fila2["id_empleado"].'">Borrar</a></td>';
+
+                        echo '</tr>';
+
+                    }
                     echo '</table>';
                 }
 
