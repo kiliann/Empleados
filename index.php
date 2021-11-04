@@ -27,6 +27,12 @@
                 <form action="index.php" method="post">
                     <tr>
                         <td>
+                            <select name="tipos">
+                                <option name="dni">DNI</option>
+                                <option name="nombre">Nombre</option>
+                            </select>
+                        </td>
+                        <td>
                             <input type="text" name="busqueda" placeholder="Busqueda">
                         </td>
                         <td>
@@ -41,7 +47,84 @@
                 $a = new Conexion();
 
                 if(isset($_POST["buscar"])){
+                    switch ($_POST['tipos']){
 
+                        case 'DNI':
+                            echo '<table class="tabladeconsulta">';
+
+                            echo '<tr>';
+
+                            echo    '<td>DNI</td>';
+                            echo    '<td>Nombre</td>';
+                            echo    '<td>Correo</td>';
+                            echo    '<td>Telefono</td>';
+
+                            echo '</tr>';
+
+                            $buqueda = $_POST['busqueda'];
+                            $consulta = "SELECT id_empleado, DNI, Nombre, Correo, Telefono FROM `empleado` WHERE DNI = '$buqueda' ";
+
+                            $resultado = $a->consultas($consulta);
+                             if(!$resultado->num_rows == 0) {
+                                 $fila = $a->extraerFila($resultado);
+                                 echo '<tr>';
+
+                                 echo '<td>' . $fila["DNI"] . '</td>';
+                                 echo '<td>' . $fila["Nombre"] . '</td>';
+                                 echo '<td>' . $fila["Correo"] . '</td>';
+                                 echo '<td>' . $fila["Telefono"] . '</td>';
+                                 echo '<td><a class="boton-personalizado" href="modificar.php?variable1=' . $fila["id_empleado"] . '">Modificar</a></td>';
+                                 echo '<td><a class="boton-personalizado" href="borrar.php?variable1=' . $fila["id_empleado"] . '">Borrar</a></td>';
+
+                                 echo '</tr>';
+                             }else{
+                                //echo $a->error();
+                                //echo $a->errno();
+                                 echo 'Introduce un dni correcto';
+                             }
+                            echo '</table>';
+                            break;
+                        case 'Nombre':
+                            $buqueda = $_POST['busqueda'];
+                                echo '<table class="tabladeconsulta">';
+                                ?>
+                                    <tr>
+
+                                        <td>DNI</td>
+                                        <td>Nombre</td>
+                                        <td>Correo</td>
+                                        <td>Telefono</td>
+
+                                    </tr>
+                                <?php
+                                $consulta2 = "SELECT id_empleado, DNI, Nombre, Correo, Telefono FROM `empleado` WHERE Nombre LIKE '%$buqueda%' ";
+                                $resultado2 = $a->consultas($consulta2);
+                                if($resultado2->num_rows != 0) {
+
+                                while ($fila2 = $a->extraerFila($resultado2)) {
+                                echo '<tr>';
+
+                                    echo '<td>' . $fila2["DNI"] . '</td>';
+                                    echo '<td>' . $fila2["Nombre"] . '</td>';
+                                    echo '<td>' . $fila2["Correo"] . '</td>';
+                                    echo '<td>' . $fila2["Telefono"] . '</td>';
+                                    echo '<td><a class="boton-personalizado" href="modificar.php?variable1=' . $fila2["id_empleado"] . '">Modificar</a></td>';
+                                    echo '<td><a class="boton-personalizado" href="borrar.php?variable1=' . $fila2["id_empleado"] . '">Borrar</a></td>';
+
+                                    echo '</tr>';
+
+                                }
+                                }else{
+                                    //echo $a->errno();
+                                    //echo $a->error();
+                                    echo 'Introduce un nombre valido';
+                                }
+                                echo '</table>';
+                            break;
+
+
+                    }
+                   /* echo '<table class="tabladeconsulta">';
                     ?>
                         <tr>
 
@@ -55,39 +138,47 @@
                     $buqueda = $_POST['busqueda'];
                     $consulta = "SELECT id_empleado, DNI, Nombre, Correo, Telefono FROM `empleado` WHERE DNI = '$buqueda' ";
 
-                    $resultado = $a->consultas($consulta);
-                    echo '<table class="tabladeconsulta">';
-                        while ($fila = $a->extraerFila($resultado)){
+                   /* $resultado = $a->consultas($consulta);
+                    if(!$resultado->num_rows == 0) {
+                        $fila = $a->extraerFila($resultado);
+                        echo '<tr>';
+
+                        echo '<td>' . $fila["DNI"] . '</td>';
+                        echo '<td>' . $fila["Nombre"] . '</td>';
+                        echo '<td>' . $fila["Correo"] . '</td>';
+                        echo '<td>' . $fila["Telefono"] . '</td>';
+                        echo '<td><a class="boton-personalizado" href="modificar.php?variable1=' . $fila["id_empleado"] . '">Modificar</a></td>';
+                        echo '<td><a class="boton-personalizado" href="borrar.php?variable1=' . $fila["id_empleado"] . '">Borrar</a></td>';
+
+                        echo '</tr>';
+                    }else{
+                       echo $a->error();
+                       echo $a->errno();
+                    }
+
+
+                    $consulta2 = "SELECT id_empleado, DNI, Nombre, Correo, Telefono FROM `empleado` WHERE Nombre LIKE '%$buqueda%' ";
+                    $resultado2 = $a->consultas($consulta2);
+                    if($resultado2->num_rows != 0) {
+
+                        while ($fila2 = $a->extraerFila($resultado2)) {
                             echo '<tr>';
 
-                            echo '<td>'.$fila["DNI"].'</td>';
-                            echo '<td>'.$fila["Nombre"].'</td>';
-                            echo '<td>'.$fila["Correo"].'</td>';
-                            echo '<td>'.$fila["Telefono"].'</td>';
-                            echo '<td><a class="boton-personalizado" href="modificar.php?variable1='.$fila["id_empleado"].'">Modificar</a></td>';
-                            echo '<td><a class="boton-personalizado" href="borrar.php?variable1='.$fila["id_empleado"].'">Borrar</a></td>';
+                            echo '<td>' . $fila2["DNI"] . '</td>';
+                            echo '<td>' . $fila2["Nombre"] . '</td>';
+                            echo '<td>' . $fila2["Correo"] . '</td>';
+                            echo '<td>' . $fila2["Telefono"] . '</td>';
+                            echo '<td><a class="boton-personalizado" href="modificar.php?variable1=' . $fila2["id_empleado"] . '">Modificar</a></td>';
+                            echo '<td><a class="boton-personalizado" href="borrar.php?variable1=' . $fila2["id_empleado"] . '">Borrar</a></td>';
 
                             echo '</tr>';
 
                         }
-                    echo '</table>';
-                    $consulta2 = "SELECT id_empleado, DNI, Nombre, Correo, Telefono FROM `empleado` WHERE Nombre LIKE '$buqueda' ";
-                    $resultado2 = $a->consultas($consulta2);
-                    echo '<table class="tabladeconsulta">';
-                    while ($fila2 = $a->extraerFila($resultado2)){
-                        echo '<tr>';
-
-                        echo '<td>'.$fila2["DNI"].'</td>';
-                        echo '<td>'.$fila2["Nombre"].'</td>';
-                        echo '<td>'.$fila2["Correo"].'</td>';
-                        echo '<td>'.$fila2["Telefono"].'</td>';
-                        echo '<td><a class="boton-personalizado" href="modificar.php?variable1='.$fila2["id_empleado"].'">Modificar</a></td>';
-                        echo '<td><a class="boton-personalizado" href="borrar.php?variable1='.$fila2["id_empleado"].'">Borrar</a></td>';
-
-                        echo '</tr>';
-
+                    }else{
+                        echo $a->errno();
+                        echo $a->error($a->errno());
                     }
-                    echo '</table>';
+                    echo '</table>';*/
                 }
 
 
