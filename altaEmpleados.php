@@ -74,19 +74,28 @@ $a = new Conexion();
             </table>
             <?php
         }else{
+
+
             $dni = $_POST['dni'];
             $nombre = $_POST['nombre'];
-            $correo = $_POST['correo'];
+            //$correo = $_POST['correo'];
             $telefono = $_POST['telefono'];
+            if(empty($_POST['correo'])){
 
-            $consulta = "INSERT INTO empleado( DNI, Nombre, Correo, Telefono) VALUES ('$dni', '$nombre', '$correo', $telefono)";
+                $correo = 'NULL';
 
-            $resultado =$a->mysqli->query($consulta);
+            }else{
+                $correo = $_POST['correo'];
+            }
+            $consulta = "INSERT INTO empleado( DNI, Nombre, Correo, Telefono) VALUES ('$dni', '$nombre', $correo, $telefono)";
+
+
+            $resultado = $a->consultas($consulta);
             if ($resultado) {
-                echo "<p>Insertado los datos correctamente </p>";
+                echo "<p>Insertado los datos correctamente </p></br>";
                 echo '<a class="boton-personalizado-2" href="altaEmpleados.php">Volver</a>';
             } else {
-                echo "<p>Error: " . $consulta . "<br>" . mysqli_error($a) . "</p>";
+                echo "<p>Error: El DNI ya esta insertado, introduzca uno correcto</p></br>";
                 echo '<a class="boton-personalizado-2" href="altaEmpleados.php">Volver</a>';
             }
 
