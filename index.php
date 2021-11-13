@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Gestion de Empleados</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link type="text/css" rel="stylesheet" href="css/estilo.css">
 </head>
 <body>
