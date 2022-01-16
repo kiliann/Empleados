@@ -11,7 +11,9 @@
         <h1>Inicio</h1>
     </div>
     <nav id="menu">
-
+        <div id="inicio"><a>Incio</a></div>
+        <div id="Quienes"><a>Quienes Somos<a></div>
+        <div id="sesion"><a href="inicio.php">Iniciar Sesion</a></div>
     </nav>
     <div id="cajaContendora">
         <div id="submenu">

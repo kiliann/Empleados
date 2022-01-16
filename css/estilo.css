@@ -14,9 +14,37 @@
 }
 #menu {
     width: 100%;
-    height: 100px;
+    height: 150px;
     background-color: aqua;
     clear: both;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+#menu div{
+
+    width: 200px;
+    height: 50px;
+    padding:10px 0px 10px 0px;
+
+    text-align: center;
+    font-size: 18px;
+    font-family: "Comic Sans MS";
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: 30px 170px;
+
+    vertical-align: middle;
+
+
+}
+
+#menu a{
+    text-decoration: none;
+}
+#sesion{
+    flex-shrink: 0;
 }
 #cajaContendora{
 
@@ -51,7 +79,7 @@
     background-color: transparent;
     border-width: 3px;
     border-style: solid;
-
+    border-radius: 5px;
     border-color: #000000;
 
 }
@@ -114,3 +142,4 @@ footer{
     border-style: solid;
     border-color: #000000;
 }
+
