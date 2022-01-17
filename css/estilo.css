@@ -42,6 +42,7 @@
 
 #menu a{
     text-decoration: none;
+    color:black;
 }
 #sesion{
     flex-shrink: 0;
